@@ -33,21 +33,7 @@ def chunking_uploaded_pdf(uploaded_file, paper_name, chunk_size=1000, overlap=20
         )
         if len(page_text) == 0 or non_printable / len(page_text) > 0.2:
             continue
-        # if page_number == 0:
-
-        #     print("\n===== FIRST PAGE DEBUG =====")
-
-        #     print(repr(page_text[:500]))
-
-        #     print(
-
-        #         "replacement ratio:",
-
-        #         page_text.count("�") / max(len(page_text), 1)
-
-        #     )
-
-        #     print("============================\n")
+        
         for i in range(0, len(page_text), chunk_size-overlap):
             chunk = page_text[i:i+chunk_size]
             
