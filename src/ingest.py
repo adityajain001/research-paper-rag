@@ -20,6 +20,26 @@ def chunking(pdf_path, paper_name, chunk_size=1000, overlap=200):
     
     return chunk_data_list
 
+def chunking_uploaded_pdf(uploaded_file, paper_name, chunk_size=1000, overlap=200):
+    pdf_bytes = uploaded_file.getvalue()
+    document = pymupdf.open(stream=pdf_bytes, filetype="pdf")
+    chunk_data_list = []
+    
+    for page_number, page in enumerate(document):  
+        page_text = page.get_text()
+        for i in range(0, len(page_text), chunk_size-overlap):
+            chunk = page_text[i:i+chunk_size]
+            
+            chunk_data = {
+            "text": chunk,
+            "paper": paper_name,
+            "page": page_number + 1
+            }
+            
+            chunk_data_list.append(chunk_data)
+    
+    return chunk_data_list
+
 def load_corpus(folder):
     data_folder = Path(folder)
     all_chunks = []
