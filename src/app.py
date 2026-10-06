@@ -11,7 +11,7 @@ def load_embedding_model():
 
 st.title("Multi-paper Research Assistant")
 uploaded_files = st.file_uploader(
-    "What should the user see?",
+    "Upload research papers (PDF)",
     type = "pdf",
     accept_multiple_files = True
 )
