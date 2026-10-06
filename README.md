@@ -71,10 +71,13 @@ How does Neural MP perform motion planning?
 
 Example answer:
 
-> Status Code: 200
-> Model name: nvidia/nemotron-3-super-120b-a12b:free
-> Answer:
-Neural MP carries out motion planning by executing a learned neural policy in a closed‑loop fashion, continually observing the environment and issuing motion commands step‑by‑step. When faced with dynamic obstacles, it refines its policy online with single‑step test‑time optimization, allowing it to adjust its trajectory to avoid collisions while still progressing toward the goal【Neural_MP, Page 7】.
+```text
+Status Code: 200
+Model name: nvidia/nemotron-3-super-120b-a12b:free
+
+Answer:
+Neural MP carries out motion planning by executing a learned neural policy in a closed-loop fashion, continually observing the environment and issuing motion commands step-by-step. When faced with dynamic obstacles, it refines its policy online with single-step test-time optimization, allowing it to adjust its trajectory to avoid collisions while still progressing toward the goal【Neural_MP, Page 7】.
+```
 
 ## Installation and Setup
 
