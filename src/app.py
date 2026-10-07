@@ -9,11 +9,23 @@ from dotenv import load_dotenv
 def load_embedding_model():
     return SentenceTransformer("all-MiniLM-L6-v2", device="cpu")
 
-st.title("Multi-paper Research Assistant")
+st.title("Multi-Paper Research Assistant")
+
+st.write(
+    "Ask questions across multiple research papers using RAG. "
+    "Upload your PDFs, and the app will retrieve relevant passages "
+    "across the collection and generate answers with paper and page citations."
+)
+
+st.caption(
+    "PDFs are processed for the current session. "
+    "Text-based/searchable PDFs work best."
+)
+
 uploaded_files = st.file_uploader(
-    "Upload research papers (PDF)",
-    type = "pdf",
-    accept_multiple_files = True
+    "Upload research papers",
+    type="pdf",
+    accept_multiple_files=True
 )
 
 if uploaded_files:
